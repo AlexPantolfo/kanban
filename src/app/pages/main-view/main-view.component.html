@@ -1,0 +1,31 @@
+<mat-toolbar class="nav">
+    <span>Kanban</span>
+</mat-toolbar>
+
+<div class="board">
+    <div class="board-wrapper">
+      <div class="board-columns" cdkDropListGroup>
+            <div class="board-column" *ngFor="let column of board.columns; let i = index">
+                  <div class="column-title">
+                    {{ column.name }}
+                    <button mat-raised-button color="warn" (click)="remove(i)"><mat-icon>delete</mat-icon></button>
+                  </div>
+                        <div class="tasks-container"
+                            cdkDropList
+                            [cdkDropListData]="column.tasks"
+                            (cdkDropListDropped)="droptask($event)">
+                            <div class="task" *ngFor="let item of column.tasks" cdkDrag>
+                                {{ item }}
+                            </div>
+                      </div>
+                      <!-- <div class="add-task">
+                        <input type="text" placeholder="Seila"><mat-icon>add</mat-icon>
+                      </div> -->
+                      <label class="add-task">
+                        <input type="text" placeholder="Adicionar um cartão"/><mat-icon (click)="show()">add</mat-icon>
+                      </label>
+              </div>
+
+            </div>
+      </div>
+</div>
