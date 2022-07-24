@@ -19,8 +19,8 @@
                             </div>
                       </div>
                       <label class="add-task">
-                        <input type="text" #task placeholder="Adicionar um cartão"/>
-                        <mat-icon (click)="addTask(task.value, i)" (click)="task.value=''">add</mat-icon>
+                        <input type="text" (keydown.enter)="addTask(task.value, i)" (keydown.enter)="task.value=''" #task placeholder="Adicionar um cartão"/>
+                        <mat-icon  (click)="addTask(task.value, i)" (click)="task.value=''">add</mat-icon>
                       </label>
               </div>
 
@@ -29,7 +29,7 @@
                   Adicionar lista
                 </div>
                 <label class="add-task">
-                  <input type="text" #column placeholder="Insira o título da lista"/>
+                  <input type="text" (keydown.enter)="addLista(column.value)" (keydown.enter)="column.value=''" #column placeholder="Insira o título da lista"/>
                   <mat-icon (click)="addLista(column.value)" (click)="column.value=''">add</mat-icon>
                 </label>
                 </div>
