@@ -13,16 +13,16 @@ export class MainViewComponent implements OnInit {
   constructor() { }
 
   board: Board = new Board('Test Board', [
-    new Column('Ideas', [
-      "Some random idea",
-      "This is another random idea",
-      "build an awesome application"
-    ]),
-    new Column('Research', [
-      "Lorem ipsum",
-      "foo",
-      "This was in the 'Research' column"
-    ]),
+    // new Column('Ideas', [
+    //   "Some random idea",
+    //   "This is another random idea",
+    //   "build an awesome application"
+    // ]),
+    // new Column('Research', [
+    //   "Lorem ipsum",
+    //   "foo",
+    //   "This was in the 'Research' column"
+    // ]),
     // new Column('Todo', [
     //   'Get to work',
     //   'Pick up groceries',
@@ -55,8 +55,17 @@ export class MainViewComponent implements OnInit {
     }
   }
 
-  show() {
-    console.log(this.board.columns)
+  addTask(task: string, index: number) {
+    if (task != '') {
+      this.board.columns[index].tasks.push(task)
+    }
+  }
+
+  addLista(titulo: string) {
+    if (titulo != '') {
+      const newColumn = new Column(titulo, [])
+      this.board.columns.push(newColumn)
+    }
   }
 
   remove(index: any) {

@@ -18,14 +18,21 @@
                                 {{ item }}
                             </div>
                       </div>
-                      <!-- <div class="add-task">
-                        <input type="text" placeholder="Seila"><mat-icon>add</mat-icon>
-                      </div> -->
                       <label class="add-task">
-                        <input type="text" placeholder="Adicionar um cartão"/><mat-icon (click)="show()">add</mat-icon>
+                        <input type="text" #task placeholder="Adicionar um cartão"/>
+                        <mat-icon (click)="addTask(task.value, i)" (click)="task.value=''">add</mat-icon>
                       </label>
               </div>
 
+              <div class="board-column" >
+                <div class="column-title">
+                  Adicionar lista
+                </div>
+                <label class="add-task">
+                  <input type="text" #column placeholder="Insira o título da lista"/>
+                  <mat-icon (click)="addLista(column.value)" (click)="column.value=''">add</mat-icon>
+                </label>
+                </div>
             </div>
       </div>
 </div>
